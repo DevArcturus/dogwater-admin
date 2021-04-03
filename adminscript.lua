@@ -107,7 +107,7 @@ CommandsNames.BackgroundTransparency = 1
 CommandsNames.Position = UDim2.new(-0.00460000000, 0, 0.120000000, 0)
 CommandsNames.Size = UDim2.new(0, 230, 0, 50)
 CommandsNames.Font = Enum.Font.SourceSans
-CommandsNames.Text = "antivoid\nantifling\nshop\nto\nmute/unmute\nkill\nbring\nre\nrj\ndupe\nnoclip/clip\nspook\nspin/unspin\nfly/unfly\ngtools/ungtools\nsync\bp\nlh"
+CommandsNames.Text = "antivoid\nantifling\nshop\nto\nmute/unmute\nkill\nbring\nre\nrj\ndupe\nnoclip/clip\nspook\nspin/unspin\nfly/unfly\ngtools/ungtools\nsync\nbp\nlh"
 CommandsNames.TextColor3 = Color3.new(0.776471, 0.776471, 0.776471)
 CommandsNames.TextSize = 14
 
