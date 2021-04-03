@@ -1,0 +1,15 @@
+{
+    "Lua.diagnostics.globals": [
+        "Color3",
+        "Enum",
+        "UDim2",
+        "Instance",
+        "game",
+        "LocalPlayer",
+        "spawn",
+        "CFrame",
+        "noVoid",
+        "rejoining",
+        "arguments"
+    ]
+}

@@ -96,7 +96,7 @@ CommandsScrollFrame.BackgroundTransparency = .4
 CommandsScrollFrame.BorderColor3 = Color3.new(0.447059, 0.772549, 0.776471)
 CommandsScrollFrame.BorderSizePixel = 0
 CommandsScrollFrame.Position = UDim2.new(0.0399999991, 0, 0.0290092044, 0)
-CommandsScrollFrame.Size = UDim2.new(0, 230, 0, 320)
+CommandsScrollFrame.Size = UDim2.new(0, 230, 0, 315)
 CommandsScrollFrame.HorizontalScrollBarInset = Enum.ScrollBarInset.ScrollBar
 CommandsScrollFrame.ScrollBarThickness = 0
 --f
@@ -104,7 +104,7 @@ CommandsNames.Name = "CommandsNames"
 CommandsNames.Parent = CommandsScrollFrame
 CommandsNames.BackgroundColor3 = Color3.new(1, 1, 1)
 CommandsNames.BackgroundTransparency = 1
-CommandsNames.Position = UDim2.new(-0.00400000000, 0, 0.120000000, 0)
+CommandsNames.Position = UDim2.new(-0.0040000000, 0, 0.120000000, 0)
 CommandsNames.Size = UDim2.new(0, 230, 0, 50)
 CommandsNames.Font = Enum.Font.SourceSans
 CommandsNames.Text = "antivoid\nantifling\nshop\nto\nmute/unmute\nkill\nbring\nre\nrj\ndupe\nnoclip/clip\nspook\nspin/unspin\nfly/unfly\ngtools/ungtools\nloopkill/unloopkill\nmassplay\nsync\nlh\nbp"
