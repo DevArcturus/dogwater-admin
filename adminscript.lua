@@ -1008,7 +1008,7 @@ AddCommand("ws", function()
 local walkspeed = args[2]
 LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
 end)
-
+--fffff
 AddCommand("spook", function()
     local oldCF = LocalPlayer.Character.HumanoidRootPart.CFrame
     for _, Target in pairs(GetPlayer(args[2])) do
