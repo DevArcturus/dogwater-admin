@@ -106,6 +106,7 @@ CommandsNames.BackgroundTransparency = 1
 CommandsNames.Position = UDim2.new(-0.00460000000, 0, 0.120000000, 0)
 CommandsNames.Size = UDim2.new(0, 230, 0, 50)
 CommandsNames.Font = Enum.Font.SourceSans
+CommandsNames.Text = "antifling\nantivoid\nbp\nbring\nchatspy/unchatspy\ndupe\nfly/unfly\ngtools/ungtools\nlh\nloopkill/unloopkill\nmassplay\nmute/unmute\nnoclip/clip\nnoroot\nres\nrjre\nscript\nshop\nspin/unspin\nspinhats\nspook\nsync\nto"
 CommandsNames.TextColor3 = Color3.new(0.776471, 0.776471, 0.776471)
 CommandsNames.TextSize = 14
 
@@ -1026,9 +1027,6 @@ AddCommand("hh", function()
             LocalPlayer.Character.Humanoid.HipHeight = args[2]
     end
 end)
-local testtable = {1,2,3,4,5,"nigga"}
-CommandsNames.Text = table.concat(Commands[CmdName],"\n")
-print(table.concat(Commands[CmdName]," "))
 AddCommand("antifling", function()
     if antifling == nil then
 		antifling = true
