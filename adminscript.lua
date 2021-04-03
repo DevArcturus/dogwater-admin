@@ -1004,6 +1004,10 @@ AddCommand("clip", function()
 	Clip = true
     LocalPlayer.Character.BasePart.CanCollide = false
 end)
+AddCommand("ws", function()
+local walkspeed = args[2]
+LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
+end)
 
 AddCommand("spook", function()
     local oldCF = LocalPlayer.Character.HumanoidRootPart.CFrame
