@@ -939,9 +939,6 @@ end)
 
 AddCommand("rj", function()
 	rejoining = true
-	if syn.queue_on_teleport then
-		syn.queue_on_teleport('game:GetService("ReplicatedFirst"):RemoveDefaultLoadingScreen()')
-	end
 	game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players"))
 	wait(3)
 	rejoining = false
