@@ -7,7 +7,7 @@ writefile("MAPrefix.lua", "/")
 if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "-dogWATER ADMIN-", Version = "v0.8"}
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "-dogWATER ADMIN-", Version = "v0.8c"}
 --cmd Bar poop
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
@@ -99,7 +99,7 @@ CommandsScrollFrame.Position = UDim2.new(0.0399999991, 0, 0.0290092044, 0)
 CommandsScrollFrame.Size = UDim2.new(0, 230.4, 0, 313)
 CommandsScrollFrame.HorizontalScrollBarInset = Enum.ScrollBarInset.ScrollBar
 CommandsScrollFrame.ScrollBarThickness = 0
-
+--f
 CommandsNames.Name = "CommandsNames"
 CommandsNames.Parent = CommandsScrollFrame
 CommandsNames.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -107,7 +107,7 @@ CommandsNames.BackgroundTransparency = 1
 CommandsNames.Position = UDim2.new(-0.00460000000, 0, 0.120000000, 0)
 CommandsNames.Size = UDim2.new(0, 230, 0, 50)
 CommandsNames.Font = Enum.Font.SourceSans
-CommandsNames.Text = "antivoid\nantifling\nshop\nto\nmute/unmute\nkill\nbring\nre\nrj\ndupe\nnoclip/clip\nspook\nspin/unspin\nfly/unfly\ngtools/ungtools"
+CommandsNames.Text = "antivoid\nantifling\nshop\nto\nmute/unmute\nkill\nbring\nre\nrj\ndupe\nnoclip/clip\nspook\nspin/unspin\nfly/unfly\ngtools/ungtools\nloopkill/unloopkill\nmassplay\nsync\nlh\nbp"
 CommandsNames.TextColor3 = Color3.new(0.776471, 0.776471, 0.776471)
 CommandsNames.TextSize = 14
 
