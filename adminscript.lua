@@ -1028,7 +1028,7 @@ AddCommand("hh", function()
 end)
 local testtable = {1,2,3,4,5,"nigga"}
 CommandsNames.Text = table.concat(testtable,"\n")
-print(table.concat(Commands," "))
+print(table.concat(testtable," "))
 AddCommand("antifling", function()
     if antifling == nil then
 		antifling = true
