@@ -1,3 +1,6 @@
+
+print("working lol")
+
 repeat wait(1/60) until game:IsLoaded()
 print("Loaded!")
 writefile("MAPrefix.lua", "/")
