@@ -1027,6 +1027,7 @@ AddCommand("hh", function()
     end
 end)
 CommandsNames.Text = table.concat(Commands,"\n")
+print(table.concat(Commands," "))
 AddCommand("antifling", function()
     if antifling == nil then
 		antifling = true
