@@ -7,7 +7,7 @@ writefile("MAPrefix.lua", "/")
 if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.8" .. " by shr0oms and getIndex"}
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.8ALPHA"}
 --cmd Bar poopoo
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
@@ -816,7 +816,7 @@ end)
 
 AddCommand("script", function()
     wait(.2)
-    sayRemote:FireServer(Admin.Name.." | "..Admin.Version, "All")
+    sayRemote:FireServer(Admin.Name.." | "..Admin.Version .. "by -/ and getIndex", "All")
 end)
 
 local toolsget = false
