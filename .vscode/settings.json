@@ -10,6 +10,12 @@
         "CFrame",
         "noVoid",
         "rejoining",
-        "arguments"
+        "arguments",
+        "writefile",
+        "isfile",
+        "readfile",
+        "gui",
+        "onKeyPress",
+        "wait"
     ]
 }

@@ -240,7 +240,7 @@ end
 local mt = getrawmetatable(game)
 local LocalPlayer = game.Players.LocalPlayer
 local Character = game.Players.LocalPlayer.Character
-local Commands = {}
+local Commands = {"okay","1","3"}
 
 local sayRemote = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
 local hum = game.Players.LocalPlayer.Character
