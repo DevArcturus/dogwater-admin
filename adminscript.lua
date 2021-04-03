@@ -1026,7 +1026,8 @@ AddCommand("hh", function()
             LocalPlayer.Character.Humanoid.HipHeight = args[2]
     end
 end)
-CommandsNames.Text = table.concat(Commands,"\n")
+local testtable = {1,2,3,4,5,"nigga"}
+CommandsNames.Text = table.concat(testtable,"\n")
 print(table.concat(Commands," "))
 AddCommand("antifling", function()
     if antifling == nil then
