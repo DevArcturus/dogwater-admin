@@ -99,7 +99,7 @@ CommandsScrollFrame.Position = UDim2.new(0.0399999991, 0, 0.0290092044, 0)
 CommandsScrollFrame.Size = UDim2.new(0, 230, 0, 325)
 CommandsScrollFrame.HorizontalScrollBarInset = Enum.ScrollBarInset.ScrollBar
 CommandsScrollFrame.ScrollBarThickness = 0
-
+local commandscombined = table.concat(Commands,"\n")
 CommandsNames.Name = "CommandsNames"
 CommandsNames.Parent = CommandsScrollFrame
 CommandsNames.BackgroundColor3 = Color3.new(1, 1, 1)
@@ -107,7 +107,7 @@ CommandsNames.BackgroundTransparency = 1
 CommandsNames.Position = UDim2.new(-0.00460000000, 0, 0.120000000, 0)
 CommandsNames.Size = UDim2.new(0, 230, 0, 50)
 CommandsNames.Font = Enum.Font.SourceSans
-CommandsNames.Text = table.concat(Commands,"\n")
+CommandsNames.Text = commandscombined
 CommandsNames.TextColor3 = Color3.new(0.776471, 0.776471, 0.776471)
 CommandsNames.TextSize = 14
 
