@@ -816,7 +816,7 @@ end)
 
 AddCommand("script", function()
     wait(.2)
-    sayRemote:FireServer(Admin.Name.." | "..Admin.Version.." ALPHA", "All")
+    sayRemote:FireServer(Admin.Name.." | "..Admin.Version, "All")
 end)
 
 local toolsget = false
