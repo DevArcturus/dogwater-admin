@@ -401,7 +401,7 @@ function AddCommand(CmdName, func)
         func()
         game.StarterGui:SetCore("SendNotification",  {
             Title = "dogwater admin";
-            Text = "Successfully executed command:" .. CmdName;
+            Text = "Successfully executed command: " .. CmdName;
             Icon = "rbxassetid://403825800";
             Duration = 10;
             Button1 = "Close";
