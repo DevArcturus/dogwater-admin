@@ -4,7 +4,7 @@ writefile("MAPrefix.lua", "/")
 if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.8eALPHA"}
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.9ALPHA"}
 --cmd Bar poopoo
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
@@ -636,7 +636,7 @@ AddCommand("massplay", function()
         return
       end 
       url = url:gsub("\n", "\r\n")
-      url = url:gsub(".", char_to_hex)
+      url = url:gsub(".", "DOGWATER_")
       url = url:gsub(" ", "+")
       return url
     end
