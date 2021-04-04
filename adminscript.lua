@@ -665,10 +665,10 @@ AddCommand("massplay", function()
         if string.find(string.lower(v.Name),'boomb') then
             v.Remote:FireServer("PlaySong", hidden);
             v.Handle.Massless = true
-            wait(1.5)
-            sync();
         end
      end
+     wait(1)
+     sync();
 
 end)
 
