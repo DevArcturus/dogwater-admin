@@ -399,6 +399,13 @@ function AddCommand(CmdName, func)
     args = msg:split(' ')
     if args[1] == Admin.Prefix..CmdName then
         func()
+        game.StarterGui:SetCore("SendNotification",  {
+            Title = "dogwater admin";
+            Text = "Successfully executed command:" .. CmdName;
+            Icon = "rbxassetid://403825800";
+            Duration = 10;
+            Button1 = "Close";
+            Callback = NotificationBindable;
     elseif args[1] == "/e" and args[2] == Admin.Prefix..CmdName then
         args[2] = args[3]
         func()
