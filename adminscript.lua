@@ -1048,6 +1048,36 @@ AddCommand("spin", function()
         Spin.MaxTorque = Vector3.new(0, math.huge, 0)
 end)
 
+AddCommand("fling", function()
+    for _, Target in pairs(GetPlayer(args[2])) do
+            PF = 99
+            PF = PF*10
+            local BT = Instance.new("BodyThrust")
+            hrp = LocalPlayer.Character.HumanoidRootPart
+            BT.Parent = hrp
+            BT.Force = Vector3.new(PF, 0, PF)
+            BT.Location = hrp.Position
+            for i,player in pairs(LocalPlayer.Character:GetChildren()) do
+                if player.ClassName == "Part" then
+                    player.CustomPhysicalProperties = PhysicalProperties.new(0, 0.3, 0.5)
+                end
+            end
+            hrp.CFrame = Target.Character.HumanoidRootPart.CFrame * CFrame.Angles(0, math.rad(0), 0) * CFrame.new(0, 0, 0)
+            wait(1)
+            for i,player in pairs(LocalPlayer.Character:GetChildren()) do
+                if player.ClassName == "Part" then
+                    player.CustomPhysicalProperties = PhysicalProperties.new(0.7, 0.3, 0.5)
+                end
+            end
+            LocalPlayer.Character.HumanoidRootPart.BodyThrust:Destroy()
+            LocalPlayer.Character.Humanoid.PlatformStand = true
+            LocalPlayer.Character.Humanoid.Sit = true
+            wait(0.1)
+            LocalPlayer.Character.Humanoid.Jump = true
+    end
+end)
+
+
 AddCommand("spinhats", function()
     for i,v in pairs(LocalPlayer.Character:GetChildren()) do
 		if v:IsA("Accessory") then
