@@ -1100,10 +1100,25 @@ AddCommand("spook", function()
 end)
 
 AddCommand("hh", function()
-    for _, Target in pairs(GetPlayer(args[2])) do
-            LocalPlayer.Character.Humanoid.HipHeight = args[2]
-    end
+    LocalPlayer.Character.Humanoid.HipHeight = args[2]
+end
+
+xNamingTbl = {}
+AddCommand("nodpn", function()
+	function clean(cplr)
+		if cplr.DisplayName ~= cplr.Name then
+			if cplr.Character then cplr.Character:WaitForChild("Humanoid").DisplayName = cplr.Name end
+			cplr.CharacterAdded:Connect(function(char)
+				char:WaitForChild("Humanoid").DisplayName = "(NICKNAMED)\n"..cplr.Name
+			end)
+		end
+	end
+	xNaming = game:GetService("Players").PlayerAdded:Connect(clean)
+	for _,p in pairs(game:GetService("Players"):GetPlayers()) do
+		clean(p)
+	end
 end)
+
 AddCommand("antifling", function()
     if antifling == nil then
 		antifling = true
