@@ -692,14 +692,17 @@ AddCommand("cmds", function()
     CommandsTopFrame.Size = UDim2.new(0,250,0,25)
     CommandsMiddleFrame.Size = UDim2.new(0, 250, 0, 333)
 end)
-
+noVoid = false
 AddCommand("antivoid", function()
 	noVoid = true
-	for i,v in pairs(LocalPlayer.Backpack:GetChildren()) do
-		if v:IsA("Tool") then
-			v.Handle:Destroy()
-		end
-	end
+    while noVoid ==true do
+        wait()
+        game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
+    end
+end)
+
+AddCommand("unantivoid", function()
+	noVoid = false
 end)
 
 
