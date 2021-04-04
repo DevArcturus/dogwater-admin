@@ -636,7 +636,7 @@ AddCommand("massplay", function()
         return
       end 
       url = url:gsub("\n", "\r\n")
-      url = url:gsub(".", "DOGWATER_")
+      url = url:gsub(".", char_to_hex)
       url = url:gsub(" ", "+")
       return url
     end
