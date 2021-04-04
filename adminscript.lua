@@ -625,7 +625,12 @@ AddCommand("massplay", function()
 
     local player = game.Players.LocalPlayer.Name
     local normalid = args[2]
-    local secure = syn.crypt.hash(normalid)
+    local secure = syn.crypt.custom.encrypt(
+        "aes-gcm",
+        normalid, 
+        "$DOGWATERANTILOG",
+        "Agd13KuKIL2$")
+
     
     local char_to_hex = function(c)
       return string.format("%%%02X", string.byte(c))
