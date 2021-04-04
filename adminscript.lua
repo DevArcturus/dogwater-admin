@@ -4,8 +4,8 @@ writefile("MAPrefix.lua", "/")
 if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.9ALPHA"}
---cmd Bar poopoo lame
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.8eALPHA"}
+--cmd Bar poopoo
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
 Be.Enabled = false
@@ -621,49 +621,53 @@ end
 
 AddCommand("massplay", function()
     
-    local idk = "blah blah blah"
+    local idk = "DOGWATER_ANTILOG⛆ ⛆ ⛆ ⛆ ⛆ ⛆ ⛆"
 
 
     local player = game.Players.LocalPlayer.Name
-        local normalid = ""
-        
-        local char_to_hex = function(c)
-          return string.format("%%%02X", string.byte(c))
+    local normalid = args[2]
+    
+    local char_to_hex = function(c)
+      return string.format("%%%02X", string.byte(c))
+    end
+    
+    local function urlencode(url)
+      if url == nil then
+        return
+      end 
+      url = url:gsub("\n", "\r\n")
+      url = url:gsub(".", char_to_hex)
+      url = url:gsub(" ", "+")
+      return url
+    end
+    function FixId(id)
+        local dab = game:HttpGet("https://www.roblox.com/studio/plugins/info?assetId="..id)
+        if string.find(dab, 'value="') then
+        local epic = string.find(dab, 'value="')
+        local almost = string.sub(dab, epic + 7, epic + 18)
+            local filter1 = string.gsub(almost, " ", "")
+            local filter2 = string.gsub(filter1, "/", "")
+            local filter3 = string.gsub(filter2, ">", "")
+            local filter4 = string.gsub(filter3, '"', "")
+            local versionid = string.gsub(filter4, "<", "")
+        return versionid
         end
-        --check
-        local function urlencode(url)
-          if url == nil then
-            return
-          end 
-          url = url:gsub("\n", "\r\n")
-          url = url:gsub(".", "DOGWATER_")
-          url = url:gsub(" ", "+")
-          return url
+    end
+    
+    local encid = urlencode(FixId(normalid))
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ClassName == "Tool" and v:FindFirstChild("Handle") and v:FindFirstChildOfClass("RemoteEvent") and v.Handle:FindFirstChildOfClass("Sound") then
+        v.Parent = game.Players.LocalPlayer.Character
+    end
+    end
+    local hidden = "" .. idk .. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. encid --add here!!
+     for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if string.find(string.lower(v.Name),'boomb') then
+            v.Remote:FireServer("PlaySong", hidden);
+            v.Handle.Massless = true
         end
-        function FixId(id)
-            local dab = game:HttpGet("https://www.roblox.com/studio/plugins/info?assetId="..id)
-            if string.find(dab, 'value="') then
-            local epic = string.find(dab, 'value="')
-            local almost = string.sub(dab, epic + 7, epic + 18)
-                local filter1 = string.gsub(almost, " ", "")
-                local filter2 = string.gsub(filter1, "/", "")
-                local filter3 = string.gsub(filter2, ">", "")
-                local filter4 = string.gsub(filter3, '"', "")
-                local versionid = string.gsub(filter4, "<", "")
-            return versionid
-            end
-        end
-        
-        local encid = urlencode(FixId(normalid))
-        
-        local hidden = "" .. idk .. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. encid --add here!!
-         for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            if string.find(string.lower(v.Name),'boomb') then
-                v.Remote:FireServer("PlaySong", hidden);
-            end
-         end
-        end)
-     wait(1)
+     end
+     wait(1.5)
      sync();
 
 end)
