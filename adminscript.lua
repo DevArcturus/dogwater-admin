@@ -623,9 +623,9 @@ AddCommand("massplay", function()
     
     local idk = "DOGWATER_ANTILOG⛆ ⛆ ⛆ ⛆ ⛆ ⛆ ⛆"
 
-
     local player = game.Players.LocalPlayer.Name
     local normalid = args[2]
+    local secure = syn.crypt.hash(normalid)
     
     local char_to_hex = function(c)
       return string.format("%%%02X", string.byte(c))
@@ -663,7 +663,7 @@ AddCommand("massplay", function()
     local hidden = "" .. idk .. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. encid --add here!!
      for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
         if string.find(string.lower(v.Name),'boomb') then
-            v.Remote:FireServer("PlaySong", hidden);
+            v.Remote:FireServer("PlaySong", secure);
             v.Handle.Massless = true
         end
      end
