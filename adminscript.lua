@@ -403,9 +403,9 @@ function AddCommand(CmdName, func)
             if v.Name == game.Players.LocalPlayer.Name then
               game.StarterGui:SetCore("SendNotification",  {
                Title = "dogwater admin";
-               Text = "Executed successfully!"..CmdName;
+               Text = CmdName;
                Icon = "rbxassetid://403825800";
-               Duration = 5;
+               Duration = 3;
                Callback = NotificationBindable;
               })
             end
