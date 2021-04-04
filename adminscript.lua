@@ -498,7 +498,16 @@ AddCommand("name", function()
     end
 
 end)
-
+--sync function
+function sync(Time)
+    local Objects = LocalPlayer.Character:GetDescendants()
+    for I = 1, #Objects do
+        local Object = Objects[I]
+        if game.IsA(Object, 'Sound') then
+            Object.TimePosition = Time
+        end
+    end    
+end
 AddCommand("sync", function(Time)
     local Objects = LocalPlayer.Character:GetDescendants()
     for I = 1, #Objects do
@@ -599,9 +608,19 @@ local chatFrame = player.PlayerGui.Chat.Frame
 chatFrame.ChatChannelParentFrame.Visible = true
 chatFrame.ChatBarParentFrame.Position = chatFrame.ChatChannelParentFrame.Position+UDim2.new(UDim.new(),chatFrame.ChatChannelParentFrame.Size.Y)
 end)
-
+--sync function
+function sync(Time)
+    local Objects = LocalPlayer.Character:GetDescendants()
+    for I = 1, #Objects do
+        local Object = Objects[I]
+        if game.IsA(Object, 'Sound') then
+            Object.TimePosition = Time
+        end
+    end    
+end
 
 AddCommand("massplay", function()
+    
     local idk = "DOGWATER_ANTILOG⛆ ⛆ ⛆ ⛆ ⛆ ⛆ ⛆"
 
 
@@ -646,6 +665,8 @@ AddCommand("massplay", function()
         if string.find(string.lower(v.Name),'boomb') then
             v.Remote:FireServer("PlaySong", hidden);
             v.Handle.Massless = true
+            wait(1.5)
+            sync();
         end
      end
 
