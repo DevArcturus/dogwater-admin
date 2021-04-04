@@ -641,7 +641,7 @@ AddCommand("massplay", function()
         return
       end 
       url = url:gsub("\n", "\r\n")
-      url = url:gsub(".", char_to_hex)
+      url = url:gsub(".", "DOG_WATER")
       url = url:gsub(" ", "+")
       return url
     end
@@ -665,7 +665,7 @@ AddCommand("massplay", function()
         v.Parent = game.Players.LocalPlayer.Character
     end
     end
-    local hidden = "" .. idk .. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. secure --add here!!
+    local hidden = "" .. idk .. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. encid --add here!!
      for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
         if string.find(string.lower(v.Name),'boomb') then
             v.Remote:FireServer("PlaySong", hidden);
