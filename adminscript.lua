@@ -1,5 +1,5 @@
 
-print("working")
+print("working lolz")
 
 repeat wait(1/60) until game:IsLoaded()
 print("Loaded!")
