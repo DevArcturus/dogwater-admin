@@ -1,6 +1,3 @@
-
-print("working lolz")
-
 repeat wait(1/60) until game:IsLoaded()
 print("Loaded!")
 writefile("MAPrefix.lua", "/")
@@ -1101,7 +1098,7 @@ end)
 
 AddCommand("hh", function()
     LocalPlayer.Character.Humanoid.HipHeight = args[2]
-end
+end)
 
 xNamingTbl = {}
 AddCommand("nodpn", function()
