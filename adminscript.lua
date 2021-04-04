@@ -134,6 +134,70 @@ CommandsCloseButton.Text = "X"
 CommandsCloseButton.TextColor3 = Color3.new(1, 1, 1)
 CommandsCloseButton.TextSize = 14
 CommandsGui.Enabled = false
+
+local intro0 = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
+local TextLabel = Instance.new("TextLabel")
+local TextLabel_2 = Instance.new("TextLabel")
+
+intro0.Name = "intro0"
+intro0.Parent = game.CoreGui
+intro0.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = intro0
+Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BackgroundTransparency = 0.100
+Frame.Size = UDim2.new(1, 0, 1, 0)
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.BackgroundTransparency = 1.000
+TextButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+TextButton.BorderSizePixel = 0
+TextButton.Position = UDim2.new(0, 755, 0, 600)
+TextButton.Size = UDim2.new(0, 218, 0, 64)
+TextButton.Font = Enum.Font.Cartoon
+TextButton.Text = "Continue"
+TextButton.TextColor3 = Color3.fromRGB(203, 203, 203)
+TextButton.TextScaled = true
+TextButton.TextSize = 14.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Down:connect(function()
+    intro0.Enabled = false
+end)
+
+ImageLabel.Parent = Frame
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BackgroundTransparency = 0.999
+ImageLabel.Position = UDim2.new(0.455795974, 0, 0.0244228803, 0)
+ImageLabel.Size = UDim2.new(0, 197, 0, 201)
+ImageLabel.Image = "rbxassetid://403825800"
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.361865401, 0, 0.305863142, 0)
+TextLabel.Size = UDim2.new(0, 487, 0, 50)
+TextLabel.Font = Enum.Font.Cartoon
+TextLabel.Text = "dogwater private admin"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextSize = 42.000
+TextLabel.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextWrapped = true
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.369451016, 0, 0.439356804, 0)
+TextLabel_2.Size = UDim2.new(0, 468, 0, 41)
+TextLabel_2.Font = Enum.Font.Cartoon
+TextLabel_2.Text = "created by shr0oms and getIndex"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextSize = 34.000
+TextLabel_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextWrapped = true
 -- Scripts:
 spawn(function () -- CommandsCloseButton.Script
 	local script = Instance.new('Script')
