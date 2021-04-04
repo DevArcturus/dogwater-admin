@@ -7,7 +7,7 @@ writefile("MAPrefix.lua", "/")
 if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.8dALPHA"}
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.8eALPHA"}
 --cmd Bar poopoo
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
