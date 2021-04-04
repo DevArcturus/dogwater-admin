@@ -17,5 +17,8 @@
         "gui",
         "onKeyPress",
         "wait"
+    ],
+    "Lua.diagnostics.disable": [
+        "undefined-global"
     ]
 }
