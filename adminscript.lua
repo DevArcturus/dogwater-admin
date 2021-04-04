@@ -198,6 +198,7 @@ TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextSize = 34.000
 TextLabel_2.TextStrokeColor3 = Color3.fromRGB(255, 255, 255)
 TextLabel_2.TextWrapped = true
+intro0.Enabled = false
 -- Scripts:
 spawn(function () -- CommandsCloseButton.Script
 	local script = Instance.new('Script')
