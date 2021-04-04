@@ -660,10 +660,10 @@ AddCommand("massplay", function()
         v.Parent = game.Players.LocalPlayer.Character
     end
     end
-    local hidden = "" .. idk .. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. encid --add here!!
+    local hidden = "" .. idk .. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. secure --add here!!
      for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
         if string.find(string.lower(v.Name),'boomb') then
-            v.Remote:FireServer("PlaySong", secure);
+            v.Remote:FireServer("PlaySong", hidden);
             v.Handle.Massless = true
         end
      end
