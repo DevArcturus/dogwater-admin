@@ -399,13 +399,17 @@ function AddCommand(CmdName, func)
     args = msg:split(' ')
     if args[1] == Admin.Prefix..CmdName then
         func()
-        game.StarterGui:SetCore("SendNotification",  {
-            Title = "dogwater admin";
-            Text = "Successfully executed command: " .. CmdName;
-            Icon = "rbxassetid://403825800";
-            Duration = 10;
-            Button1 = "Close";
-            Callback = NotificationBindable;
+        for i,v in pairs(game:GetService("Players"):GetChildren()) do
+            if v.Name == game.Players.LocalPlayer.Name then
+              game.StarterGui:SetCore("SendNotification",  {
+               Title = "dogwater admin";
+               Text = "Executed successfully!"..CmdName;
+               Icon = "rbxassetid://403825800";
+               Duration = 5;
+               Callback = NotificationBindable;
+              })
+            end
+        end
     elseif args[1] == "/e" and args[2] == Admin.Prefix..CmdName then
         args[2] = args[3]
         func()
