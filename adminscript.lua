@@ -4,6 +4,7 @@ writefile("MAPrefix.lua", "/")
 if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
+local success, response = pcall(function()
 local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.9dALPHA"}
 --cmd Bar poopoo nigger
 Be = Instance.new('BlurEffect')
@@ -751,7 +752,7 @@ AddCommand("cmds", function()
 end)
 noVoid = false
 AddCommand("antivoid", function()
-game.Players.LocalPlayer.FallenPartsDestroyHeight = 0/0
+    game.Players.LocalPlayer.FallenPartsDestroyHeight = 0/0
 end)
 
 
@@ -1253,3 +1254,5 @@ AddCommand("antifling", function()
 
 	end
 end)
+end)
+print(response)
