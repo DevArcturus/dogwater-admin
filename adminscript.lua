@@ -741,7 +741,7 @@ local id = args[2]
 for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
     if string.find(string.lower(v.Name),'boomb') then
         v.Remote:FireServer("PlaySong", id);
-        repeat wait() Sound.Playing = true until bping == false
+        repeat wait() v.Handle.Sound.Playing = true until bping == false
         LocalPlayer.Character.Humanoid:UnequipTools()
     end
 end
