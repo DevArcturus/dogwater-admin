@@ -4,7 +4,7 @@ writefile("MAPrefix.lua", "/")
 if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.9bALPHA"}
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.9cALPHA"}
 --cmd Bar poopoo nigger
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
@@ -303,6 +303,7 @@ end
 local mt = getrawmetatable(game)
 local LocalPlayer = game.Players.LocalPlayer
 local Character = game.Players.LocalPlayer.Character
+local Workspace = game:GetService("Workspace")
 local Commands = {"okay","1","3"}
 
 local sayRemote = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
@@ -517,6 +518,62 @@ AddCommand("sync", function(Time)
         end
     end
 end)
+
+AddCommand("kill2", function()
+    for _, Target in pairs(GetPlayer(args[2])) do
+            if LocalPlayer.Character.PrimaryPart ~= nil then
+                local Character = LocalPlayer.Character
+                local previous = LocalPlayer.Character.PrimaryPart.CFrame
+                
+                Character.Archivable = true
+                local Clone = Character:Clone()
+                LocalPlayer.Character = Clone
+                wait(3)
+                LocalPlayer.Character = Character
+                wait(0.35)
+                
+                if LocalPlayer.Character and Target.Character and Target.Character.PrimaryPart ~= nil then
+                    if LocalPlayer.Character:FindFirstChildOfClass("Humanoid") then
+                        LocalPlayer.Character:FindFirstChildOfClass("Humanoid"):Destroy()
+                    end
+        
+                    local Humanoid = Instance.new("Humanoid")
+                    Humanoid.Parent = LocalPlayer.Character
+        
+                    local Tool = nil
+        
+                    if LocalPlayer.Character:FindFirstChildOfClass("Tool") then
+                        Tool = LocalPlayer.Character:FindFirstChildOfClass("Tool")
+                    elseif LocalPlayer.Backpack and LocalPlayer.Backpack:FindFirstChildOfClass("Tool") then
+                        Tool = LocalPlayer.Backpack:FindFirstChildOfClass("Tool")
+                    end
+                    print(Tool)
+        
+                    if Tool ~= nil then
+                        Tool.Parent = LocalPlayer.Backpack
+        
+                        local Arm = game.Players.LocalPlayer.Character['Right Arm'].CFrame * CFrame.new(0, -1, 0, 1, 0, 0, 0, 0, 1, 0, -1, 0)
+                        Tool.Grip = Arm:ToObjectSpace(Target.Character.PrimaryPart.CFrame):Inverse()
+                        
+                        Tool.Parent = LocalPlayer.Character
+                        Workspace.CurrentCamera.CameraSubject = Tool.Handle
+                        repeat
+                            wait()
+                        until not Tool or Tool and (Tool.Parent == Workspace or Tool.Parent == Target.Character)
+        
+                        Humanoid.Health = 0
+                        LocalPlayer.Character = nil
+                    end
+                end
+        
+                LocalPlayer.CharacterAdded:Wait()
+                repeat wait() until LocalPlayer.Character.PrimaryPart ~= nil
+                
+                LocalPlayer.Character:SetPrimaryPartCFrame(previous)
+            end
+    end
+end)
+
 AddCommand("lh", function()
     for i,v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
         v:Stop()
