@@ -519,7 +519,7 @@ AddCommand("sync", function(Time)
     end
 end)
 
-AddCommand("kill2", function()
+AddCommand("tkill", function()
     for _, Target in pairs(GetPlayer(args[2])) do
             if LocalPlayer.Character.PrimaryPart ~= nil then
                 local Character = LocalPlayer.Character
