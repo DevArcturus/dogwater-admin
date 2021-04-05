@@ -947,17 +947,14 @@ AddCommand("bring", function()
 end)
 
 AddCommand("re", function()
-    local ogChar = LocalPlayer.Character
-    LocalPlayer.Character = Clone
-    LocalPlayer.Character = ogChar
-    wait(4.9)
-    local pos = LocalPlayer.Character.HumanoidRootPart.CFrame
-    LocalPlayer.Character:BreakJoints()
-    LocalPlayer.CharacterAdded:wait();
-    repeat wait() until LocalPlayer.Character
-    wait(.2)
-    LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-end)
+    local originalchar = game.Players.LocalPlayer.Character
+    local clonedchar = originalchar:Clone()
+    local heartbeat
+    heartbeat = game:GetService("RunService").Heartbeat:Connect(function()
+    for i = 1, 10 do 
+        LocalPlayer.Character = clonedchar
+        LocalPlayer.Character = originalchar
+    end
 
 AddCommand("script", function()
     wait(.2)
