@@ -1090,7 +1090,7 @@ wait(3)
 rejoining = false
 end)
 
-AddCommand("rejoin/rj", function()
+AddCommand("rejoin" or "rj", function()
 	rejoining = true
 	game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players"))
 	wait(3)
