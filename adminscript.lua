@@ -751,15 +751,7 @@ AddCommand("cmds", function()
 end)
 noVoid = false
 AddCommand("antivoid", function()
-	noVoid = true
-    while noVoid ==true do
-        wait()
-        game.Players.LocalPlayer.Character.Humanoid:UnequipTools()
-    end
-end)
-
-AddCommand("unantivoid", function()
-	noVoid = false
+game.Players.LocalPlayer.FallenPartsDestroyHeight = 0/0
 end)
 
 
