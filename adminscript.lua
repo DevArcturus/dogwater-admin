@@ -859,11 +859,10 @@ AddCommand("unmute", function()
         end
     end
 end)
-AddCommand("noroot", function()
-    local Character = LocalPlayer.Character
+AddCommand("antikill", function()
     Character.Parent = nil
-    Character.HumanoidRootPart:Destroy()
-    Character.Parent = workspace
+    Character:FindFirstChild("HumanoidRootPart"):Destroy()
+    Character.Parent = game:GetService('Workspace')
 end)
 
 AddCommand("kill", function()
@@ -1091,7 +1090,7 @@ wait(3)
 rejoining = false
 end)
 
-AddCommand("rj", function()
+AddCommand("rejoin/rj", function()
 	rejoining = true
 	game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players"))
 	wait(3)
