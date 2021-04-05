@@ -947,6 +947,7 @@ AddCommand("bring", function()
 end)
 
 AddCommand("re", function()
+    print("resetting")
     local originalchar = game.Players.LocalPlayer.Character
     local clonedchar = originalchar:Clone()
     local heartbeat
