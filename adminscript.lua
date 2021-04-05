@@ -945,7 +945,7 @@ AddCommand("bring", function()
         LocalPlayer.Character.HumanoidRootPart.CFrame = oldCF
         end
 end)
-
+--please work
 AddCommand("re", function()
     print("resetting")
     local originalchar = game.Players.LocalPlayer.Character
