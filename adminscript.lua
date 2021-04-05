@@ -956,7 +956,7 @@ AddCommand("re", function()
         LocalPlayer.Character = clonedchar
         LocalPlayer.Character = originalchar
     end
-
+end)
 AddCommand("script", function()
     wait(.2)
     sayRemote:FireServer(Admin.Name.." | "..Admin.Version .. " by -/ and getIndex", "All")
