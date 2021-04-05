@@ -745,7 +745,7 @@ for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
         wait() v.Handle.Sound.Playing = true
         LocalPlayer.Character.Humanoid:UnequipTools()
         until bping == false
-        
+        v.Handle.Sound:Stop()
     end
 end
 end)
