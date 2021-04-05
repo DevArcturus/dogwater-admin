@@ -734,6 +734,19 @@ AddCommand("unchatspy", function()
     enabled = false
 end)
 
+local bping = false
+AddCommand("bpplay", function()
+bping = true
+local id = args[2]
+for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+    if string.find(string.lower(v.Name),'boomb') then
+        v.Remote:FireServer("PlaySong", id);
+        repeat wait() Sound.Playing = true until bping == false
+        LocalPlayer.Character.Humanoid:UnequipTools()
+    end
+end
+end)
+
 AddCommand("fly", function()
     wait(.1)
     yesfly()
