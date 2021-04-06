@@ -767,28 +767,29 @@ AddCommand("vis", function()
     end
     
     local encid = urlencode(FixId(normalid))
-        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
-        if v.ClassName == "Tool" and v:FindFirstChild("Handle") and v:FindFirstChildOfClass("RemoteEvent") and v.Handle:FindFirstChildOfClass("Sound") then
-            v.Parent = game.Players.LocalPlayer.Character
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    if v.ClassName == "Tool" and v:FindFirstChild("Handle") and v:FindFirstChildOfClass("RemoteEvent") and v.Handle:FindFirstChildOfClass("Sound") then
+        v.Parent = game.Players.LocalPlayer.Character
+    end
+    end
+    local hidden = "" .. "CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_".. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. encid --add here!!
+     for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if string.find(string.lower(v.Name),'boomb') then
+            v.Remote:FireServer("PlaySong", hidden);
+            v.Handle.Massless = true
+            repeat
+                wait()
+                game.Players.LocalPlayer.Character.Humanoid.HipHeight = v.Handle.Sound.PlaybackLoudness/150
+            until visualizing == false
         end
-        local hidden = "" .. "CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_CAUGHT_IN_4K_".. "&%61%73%73%65%74%76%65%72%73%69%6f%6e%69%64=" .. encid --add here!!
-        end
-         for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
-            if string.find(string.lower(v.Name),'boomb')then
-                v.Remote:FireServer("PlaySong", hidden)
-                wait(2)
-                v.Handle.Massless = true
-                    repeat
-                        wait()
-                        game.Players.LocalPlayer.Character.Humanoid.HipHeight = v.Handle.Sound.PlaybackLoudness/150
-                    until visualizing == false
-            end
-         end
-    
+     end
+     wait(1.5)
+     sync();
 end)
 
 AddCommand("unvis", function()
     visualizing = false
+    game.Players.LocalPlayer.Character.Humanoid.HipHeight = 0
 end)
 AddCommand("unchatspy", function()
     enabled = false
