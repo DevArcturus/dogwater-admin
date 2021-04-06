@@ -785,6 +785,8 @@ AddCommand("vis", function()
             end)()
         end
      end
+     wait(1.5)
+     sync();
 end)
 
 AddCommand("unvis", function()
