@@ -729,7 +729,32 @@ AddCommand("massplay", function()
      sync();
 
 end)
+local visualizing = false
+AddCommand("vis", function()
+    visualizing = true
+    local id = args[2]
+        for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+        if v.ClassName == "Tool" and v:FindFirstChild("Handle") and v:FindFirstChildOfClass("RemoteEvent") and v.Handle:FindFirstChildOfClass("Sound") then
+            v.Parent = game.Players.LocalPlayer.Character
+        end
+        end
+         for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+            if string.find(string.lower(v.Name),'boomb')then
+                v.Remote:FireServer("PlaySong", id)
+                wait(2)
+                v.Handle.Massless = true
+                    repeat
+                        wait()
+                        game.Players.LocalPlayer.Character.Humanoid.HipHeight = v.Handle.Sound.PlaybackLoudness/150
+                    until visualizing == false
+            end
+         end
+    
+end)
 
+AddCommand("unvis", function()
+    visualizing = false
+end)
 AddCommand("unchatspy", function()
     enabled = false
 end)
