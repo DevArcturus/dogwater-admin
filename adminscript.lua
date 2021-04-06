@@ -5,7 +5,7 @@ if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
 local success, response = pcall(function()
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.9fALPHA"}
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v0.9gALPHA"}
 --cmd Bar poopoo nigger
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
@@ -777,14 +777,14 @@ AddCommand("vis", function()
         if string.find(string.lower(v.Name),'boomb') then
             v.Remote:FireServer("PlaySong", hidden);
             v.Handle.Massless = true
-            repeat
-                wait()
-                game.Players.LocalPlayer.Character.Humanoid.HipHeight = v.Handle.Sound.PlaybackLoudness/150
-            until visualizing == false
+            coroutine.wrap(function()
+                repeat
+                    wait()
+                    game.Players.LocalPlayer.Character.Humanoid.HipHeight = v.Handle.Sound.PlaybackLoudness/150
+                until visualizing == false
+            end)()
         end
      end
-     wait(1.5)
-     sync();
 end)
 
 AddCommand("unvis", function()
