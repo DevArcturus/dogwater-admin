@@ -5,7 +5,7 @@ if not isfile("MAPrefix.lua") then
     writefile("MAPrefix.lua", "/")
     end
 local success, response = pcall(function()
-local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v1BETA"}
+local Admin = {Prefix = readfile("MAPrefix.lua"), Name = "dogwater private admin", Version = "v1.01ALPHA"}
 --cmd Bar poopoo nigger
 Be = Instance.new('BlurEffect')
 Be.Parent = game.Lighting
@@ -502,11 +502,11 @@ AddCommand("name", function()
 end)
 --sync function
 function sync(Time)
-    local Objects = LocalPlayer.Character:GetDescendants()
+    local Objects = game.Players.LocalPlayer.Character:GetDescendants()
     for I = 1, #Objects do
         local Object = Objects[I]
         if game.IsA(Object, 'Sound') then
-            Object.TimePosition = Time
+            Object.TimePosition = Object.TimePosition + 0.00000000000001
         end
     end    
 end
@@ -515,7 +515,7 @@ AddCommand("sync", function(Time)
     for I = 1, #Objects do
         local Object = Objects[I]
         if game.IsA(Object, 'Sound') then
-            Object.TimePosition = Time
+            Object.TimePosition = Object.TimePosition + 0.00000000000001
         end
     end
 end)
