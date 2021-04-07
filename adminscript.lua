@@ -1,3 +1,5 @@
+---@diagnostic disable: undefined-global, lowercase-global
+
 
 repeat wait(1 / 60) until game:IsLoaded()
 print("Loaded!")
