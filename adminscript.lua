@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-global, lowercase-global
+---@diagnostic disable: undefined-global, lowercase-global, undefined-field
 
 repeat wait(1 / 60) until game:IsLoaded()
 print("Loaded!")
@@ -9,7 +9,7 @@ local success, response = pcall(function()
 local Admin = {
 	Prefix = readfile("DWPrefix.lua"),
 	Name = "dogwater dev build",
-	Version = "v1.0.0"
+	Version = "v1.0.5"
 }
 
 for i, v in pairs(game:GetService("Players"):GetChildren()) do
@@ -805,7 +805,7 @@ AddCommand("unfly","unfly", function()
 end)
 
 
-AddCommand("commands","cmds" function()
+AddCommand("commands","cmds", function()
 
 end)
 
@@ -922,7 +922,7 @@ AddCommand("unmute","unmute", function()
 		end
 	end
 end)
-AddCommand("antikill","antikill" function()
+AddCommand("antikill","antikill", function()
 	Character.Parent = nil
 	Character:FindFirstChild("HumanoidRootPart"):Destroy()
 	Character.Parent = game:GetService('Workspace')
