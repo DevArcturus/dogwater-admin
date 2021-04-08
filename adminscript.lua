@@ -1,12 +1,11 @@
 ---@diagnostic disable: undefined-global, lowercase-global
 
-
 repeat wait(1 / 60) until game:IsLoaded()
 print("Loaded!")
 if not isfile("DWPrefix.lua") then
 	writefile("DWPrefix.lua", "/")
 end
---local success, response = pcall(function()
+local success, response = pcall(function()
 local Admin = {
 	Prefix = readfile("DWPrefix.lua"),
 	Name = "dogwater dev build",
@@ -427,12 +426,13 @@ function GetPlayer(target)
 end
 
 
-function AddCommand(CmdName, func)
+function AddCommand(CmdName, CmdAlias, func)
 	Commands[CmdName] = CmdName
+	Commands[CmdAlias] = CmdAlias
 	LocalPlayer.Chatted:Connect(function(msg)
 		msg = msg:lower()
 		args = msg:split(' ')
-		if args[1] == Admin.Prefix..CmdName then
+		if args[1] == Admin.Prefix..CmdName or Admin.Prefix..CmdAlias then
 			func()
 			for i, v in pairs(game:GetService("Players"):GetChildren()) do
 				if v.Name == game.Players.LocalPlayer.Name then
@@ -463,7 +463,7 @@ function AddCommand(CmdName, func)
 end
 
 
-AddCommand("name", function()
+AddCommand("name","name",function()
 	for _, Target in pairs(GetPlayer(args[2])) do
 		print(Target)
 		wait(.1)
@@ -481,7 +481,7 @@ function sync(Time)
 		end
 	end    
 end
-AddCommand("sync", function(Time)
+AddCommand("sync", "sync", function(Time)
 	local Objects = LocalPlayer.Character:GetDescendants()
 	for I = 1, #Objects do
 		local Object = Objects[I]
@@ -491,7 +491,7 @@ AddCommand("sync", function(Time)
 	end
 end)
 
-AddCommand("tkill", function()
+AddCommand("toolkill", "tkill", function()
 	for _, Target in pairs(GetPlayer(args[2])) do
 		if LocalPlayer.Character.PrimaryPart ~= nil then
 			local Character = LocalPlayer.Character
@@ -548,7 +548,7 @@ AddCommand("tkill", function()
 	end
 end)
 
-AddCommand("lh", function()
+AddCommand("lowhold","lh", function()
 	for i, v in pairs(game.Players.LocalPlayer.Character.Humanoid:GetPlayingAnimationTracks()) do
 		v:Stop()
 	end
@@ -561,7 +561,7 @@ AddCommand("lh", function()
 	end
 end)
 
-AddCommand("bp", function()
+AddCommand("backpack","bp", function()
 	for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 		if string.find(string.lower(v.Name), 'boomb') then
 			v.Grip = CFrame.new(-1.43400002, -0.996999979, 2.11500001, -0.672917426, -0.736945152, 0.0639854819, -0.733912885, 0.675949693, 0.0668134838, -0.0924888402, -0.00199981011, -0.995711744)
@@ -574,7 +574,7 @@ AddCommand("bp", function()
 	end
 end)
 local enabled = false
-AddCommand("chatspy", function()
+AddCommand("chatspy","chatspy", function()
 	enabled = true
 	spyOnMyself = true
 	public = false
@@ -654,7 +654,7 @@ function sync(Time)
 	end    
 end
 
-AddCommand("massplay", function()
+AddCommand("masspplay","mp", function()
 
 	local idk = "⛆DOGWATER_ANTILOG⛆ ⛆ ⛆ ⛆ ⛆ ⛆ ⛆"
 
@@ -707,7 +707,7 @@ AddCommand("massplay", function()
 
 end)
 local visualizing = false
-AddCommand("vis", function()
+AddCommand("visualize","vis", function()
 	visualizing = true
 
 	local idk = "⛆DOGWATER_ANTILOG⛆ ⛆ ⛆ ⛆ ⛆ ⛆ ⛆"
@@ -766,16 +766,16 @@ AddCommand("vis", function()
 	sync();
 end)
 
-AddCommand("unvis", function()
+AddCommand("unvisualize","unvis", function()
 	visualizing = false
 	game.Players.LocalPlayer.Character.Humanoid.HipHeight = 0
 end)
-AddCommand("unchatspy", function()
+AddCommand("unchatspy","unchatspy", function()
 	enabled = false
 end)
 
 local bping = false
-AddCommand("bpplay", function()
+AddCommand("backpackplay","bpplay", function()
 	bping = true
 	local id = args[2]
 	for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
@@ -790,32 +790,32 @@ AddCommand("bpplay", function()
 		end
 	end
 end)
-AddCommand("unbpplay", function()
+AddCommand("unbackpackplay","unbpplay", function()
 	bping = false
 end)
 
-AddCommand("fly", function()
+AddCommand("fly","fly", function()
 	wait(.1)
 	yesfly()
 end)
 
-AddCommand("unfly", function()
+AddCommand("unfly","unfly", function()
 	wait(.1)
 	nofly()
 end)
 
 
-AddCommand("cmds", function()
+AddCommand("commands","cmds" function()
 
 end)
 
 noVoid = false
-AddCommand("antivoid", function()
+AddCommand("antivoid","av", function()
 
 end)
 
 
-AddCommand("shop", function()
+AddCommand("serverhop","shop", function()
 	rejoining = true
 	if syn.queue_on_teleport then
 		syn.queue_on_teleport('game:GetService("ReplicatedFirst"):RemoveDefaultLoadingScreen()')
@@ -852,7 +852,7 @@ AddCommand("shop", function()
 	rejoining = false
 end)
 _G.connections = {}
-AddCommand("to", function()
+AddCommand("goto","to", function()
 	for _, Target in pairs(GetPlayer(args[2])) do
 		LocalPlayer.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
 	end
@@ -884,7 +884,7 @@ function MuteLoop()
 	end)
 end
 MuteLoop()
-AddCommand("mute", function()
+AddCommand("mute","mute", function()
 	if args[2] == "all" then
 		for _, v in pairs(game:GetService("Players"):GetPlayers()) do
 			if v ~= LocalPlayer then
@@ -903,7 +903,7 @@ AddCommand("mute", function()
 	end
 end)
 
-AddCommand("unmute", function()
+AddCommand("unmute","unmute", function()
 	if args[2] == "all" then
 		for i, _ in pairs(_G.connections.muted) do
 			table.remove(_G.connections.muted, i)
@@ -922,13 +922,13 @@ AddCommand("unmute", function()
 		end
 	end
 end)
-AddCommand("antikill", function()
+AddCommand("antikill","antikill" function()
 	Character.Parent = nil
 	Character:FindFirstChild("HumanoidRootPart"):Destroy()
 	Character.Parent = game:GetService('Workspace')
 end)
 
-AddCommand("kill", function()
+AddCommand("kill","kill", function()
 	for _, Target in pairs(GetPlayer(args[2])) do
 		local oldCF = LocalPlayer.Character.HumanoidRootPart.CFrame
 		Instance.new("Humanoid", LocalPlayer.Character)
@@ -956,7 +956,7 @@ end)
 
 local killing = false
 
-AddCommand("loopkill", function()
+AddCommand("loopkill","lk", function()
 	killing = true
 	for _, Target in pairs(GetPlayer(args[2])) do
 		function kill()
@@ -994,11 +994,11 @@ AddCommand("loopkill", function()
 	end
 end)
 
-AddCommand("unloopkill", function()
+AddCommand("unloopkill","unlk", function()
 	killing = false
 end)
 
-AddCommand("trap", function()
+AddCommand("trap","trap", function()
 	local trapPos = CFrame.new(844.603943, 594.240295, -378.338867, 0.96132803, -0.0757621378, 0.264780134, -3.44562689e-09, 0.961417735, 0.275092632, -0.275405914, -0.264454275, 0.924237788)
 	LocalPlayer.Character.Humanoid:UnequipTools()
 	LocalPlayer.Character.Humanoid:remove()
@@ -1012,7 +1012,7 @@ AddCommand("trap", function()
 	LocalPlayer.Character.HumanoidRootPart.CFrame = trapPos
 end)
 
-AddCommand("bring", function()
+AddCommand("bring","bring", function()
 	for _, Target in pairs(GetPlayer(args[2])) do
 		local oldCF = LocalPlayer.Character.HumanoidRootPart.CFrame
 		Instance.new("Humanoid", LocalPlayer.Character)
@@ -1038,7 +1038,7 @@ AddCommand("bring", function()
 	end
 end)
 
-AddCommand("re", function()
+AddCommand("reset","re", function()
 	local ogChar = LocalPlayer.Character
 	LocalPlayer.Character = Clone
 	LocalPlayer.Character = ogChar
@@ -1053,13 +1053,13 @@ AddCommand("re", function()
 	LocalPlayer.Character.HumanoidRootPart.CFrame = pos
 end)
 
-AddCommand("script", function()
+AddCommand("script","credits", function()
 	wait(.2)
 	sayRemote:FireServer(Admin.Name.." | "..Admin.Version .. " by -/ and getIndex", "All")
 end)
 
 local toolsget = false
-AddCommand("gtools", function()
+AddCommand("grabtools","gtools", function()
 	toolsget = true
 	for i, v in pairs(workspace:GetChildren()) do
 		if v:IsA("Tool") then
@@ -1076,10 +1076,10 @@ AddCommand("gtools", function()
 	end)
 end)
 
-AddCommand("ungtools", function()
+AddCommand("ungrabtools","ungtools", function()
 	toolsget = false
 end)
-AddCommand("dupe", function()
+AddCommand("dupe","dupe", function()
 	local AmountToDupe = 5
 
 	local plr = game.Players.LocalPlayer
@@ -1155,7 +1155,7 @@ AddCommand("dupe", function()
 	game:GetService("TeleportService"):Teleport(game.PlaceId)
 end)
 
-AddCommand("rjre", function()
+AddCommand("rejoinreset","rjre", function()
 	if not syn.queue_on_teleport then
 	end
 	rejoining = true
@@ -1176,21 +1176,21 @@ AddCommand("rjre", function()
 	rejoining = false
 end)
 
-AddCommand("rj", function()
+AddCommand("rejoin","rj", function()
 	rejoining = true
 	game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game:GetService("Players"))
 	wait(3)
 	rejoining = false
 end)
 
-AddCommand("spin", function()
+AddCommand("spin","spin", function()
 	local Spin = Instance.new("BodyAngularVelocity", LocalPlayer.Character.HumanoidRootPart)
 	Spin.Name = "Spinning"
 	Spin.AngularVelocity = Vector3.new(0, 20, 0)
 	Spin.MaxTorque = Vector3.new(0, math.huge, 0)
 end)
 
-AddCommand("fling", function()
+AddCommand("fling","fling", function()
 	for _, Target in pairs(GetPlayer(args[2])) do
 		PF = 99
 		PF = PF * 10
@@ -1220,7 +1220,7 @@ AddCommand("fling", function()
 end)
 
 
-AddCommand("spinhats", function()
+AddCommand("spinhats","spinhats", function()
 	for i, v in pairs(LocalPlayer.Character:GetChildren()) do
 		if v:IsA("Accessory") then
 			local findForce = v.Handle:FindFirstChildOfClass("BodyForce")
@@ -1244,7 +1244,7 @@ AddCommand("spinhats", function()
 	end
 end)
 
-AddCommand("unspin", function()
+AddCommand("unspin","unspin", function()
 	for i, v in pairs(LocalPlayer.Character.HumanoidRootPart:GetChildren()) do
 		if v.Name == "Spinning" then
 			v:Destroy()
@@ -1252,7 +1252,7 @@ AddCommand("unspin", function()
 	end
 end)
 
-AddCommand("noclip", function()
+AddCommand("noclip","nc", function()
 	Clip = false
 	function NoclipLoop()
 		if Clip == false and LocalPlayer.Character ~= nil then
@@ -1266,19 +1266,19 @@ AddCommand("noclip", function()
 	Noclipping = game:GetService('RunService').Stepped:connect(NoclipLoop)
 end)
 
-AddCommand("clip", function()
+AddCommand("clip","c", function()
 	if Noclipping then
 		Noclipping:Disconnect()
 	end
 	Clip = true
 	LocalPlayer.Character.BasePart.CanCollide = false
 end)
-AddCommand("ws", function()
+AddCommand("walkspeed","ws", function()
 	local walkspeed = args[2]
 	LocalPlayer.Character.Humanoid.WalkSpeed = walkspeed
 end)
 --fffff
-AddCommand("spook", function()
+AddCommand("spook","spook", function()
 	local oldCF = LocalPlayer.Character.HumanoidRootPart.CFrame
 	for _, Target in pairs(GetPlayer(args[2])) do
 		distancepl = 2
@@ -1292,12 +1292,12 @@ AddCommand("spook", function()
 	end
 end)
 
-AddCommand("hh", function()
+AddCommand("hipheight","hh", function()
 	LocalPlayer.Character.Humanoid.HipHeight = args[2]
 end)
 --removes nicknames
 local xNamingTbl = {}
-AddCommand("nodpn", function()
+AddCommand("nodisplaynames","nodpn", function()
 	function clean(cplr)
 		if cplr.DisplayName ~= cplr.Name then
 			if cplr.Character then
@@ -1314,7 +1314,7 @@ AddCommand("nodpn", function()
 	end
 end)
 
-AddCommand("antifling", function()
+AddCommand("antifling","af", function()
 	if antifling == nil then
 		antifling = true
 	else
@@ -1349,3 +1349,5 @@ AddCommand("antifling", function()
 
 	end
 end)
+end)
+print(response)
