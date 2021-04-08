@@ -9,7 +9,7 @@ local success, response = pcall(function()
 local Admin = {
 	Prefix = readfile("DWPrefix.lua"),
 	Name = "dogwater dev build",
-	Version = "v1.0.5"
+	Version = "v1.0.6"
 }
 
 for i, v in pairs(game:GetService("Players"):GetChildren()) do
@@ -445,7 +445,7 @@ function AddCommand(CmdName, CmdAlias, func)
 					})
 				end
 			end
-		elseif args[1] == "/e" and args[2] == Admin.Prefix..CmdName then
+		elseif args[1] == "/e" and args[2] == Admin.Prefix..CmdName or Admin.Prefix..CmdAlias then
 			args[2] = args[3]
 			func()
 		end
@@ -455,7 +455,7 @@ function AddCommand(CmdName, CmdAlias, func)
 		if text then
 			text = Exec.Text:lower()
 			args = text:split(' ')
-			if args[1] == Commands[CmdName] then
+			if args[1] == Commands[CmdName] or Commands[CmdAlias] then
 				func()
 			end
 		end
