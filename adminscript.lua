@@ -9,7 +9,7 @@ local success, response = pcall(function()
 local Admin = {
 	Prefix = readfile("DWPrefix.lua"),
 	Name = "dogwater dev build",
-	Version = "v1.0.5"
+	Version = "v1.0.7"
 }
 
 for i, v in pairs(game:GetService("Players"):GetChildren()) do
@@ -431,7 +431,7 @@ function AddCommand(CmdName, func)
 	LocalPlayer.Chatted:Connect(function(msg)
 		msg = msg:lower()
 		args = msg:split(' ')
-		if args[1] == Admin.Prefix..CmdName or Admin.Prefix..CmdAlias then
+		if args[1] == Admin.Prefix..CmdName then
 			func()
 			for i, v in pairs(game:GetService("Players"):GetChildren()) do
 				if v.Name == game.Players.LocalPlayer.Name then
@@ -490,6 +490,29 @@ AddCommand("sync",function(Time)
 	end
 end)
 
+AddCommand("desync",function(Time)
+	for _, Target in pairs(GetPlayer(args[2])) do
+		local Objects = Target.Character:GetDescendants()
+		for I = 1, #Objects do
+			local Object = Objects[I]
+			if game.IsA(Object, 'Sound') then
+				Object.TimePosition = Object.TimePosition + math.random()
+			end
+		end
+	end
+end)
+
+AddCommand("sync2",function(Time)
+	for _, Target in pairs(GetPlayer(args[2])) do
+		local Objects = Target.Character:GetDescendants()
+		for I = 1, #Objects do
+			local Object = Objects[I]
+			if game.IsA(Object, 'Sound') then
+				Object.TimePosition = 0
+			end
+		end
+	end
+end)
 AddCommand("tkill", function()
 	for _, Target in pairs(GetPlayer(args[2])) do
 		if LocalPlayer.Character.PrimaryPart ~= nil then
