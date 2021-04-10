@@ -456,6 +456,17 @@ function AddCommand(CmdName, func)
 			args = text:split(' ')
 			if args[1] == Commands[CmdName] then
 				func()
+				for i, v in pairs(game:GetService("Players"):GetChildren()) do
+					if v.Name == game.Players.LocalPlayer.Name then
+						game.StarterGui:SetCore("SendNotification",  {
+							Title = "dogwater admin";
+							Text = CmdName;
+							Icon = "rbxassetid://403825800";
+							Duration = 3;
+							Callback = NotificationBindable;
+						})
+					end
+				end
 			end
 		end
 	end)
