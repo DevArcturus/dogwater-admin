@@ -9,7 +9,7 @@ local success, response = pcall(function()
 local Admin = {
 	Prefix = readfile("DWPrefix.lua"),
 	Name = "dogwater dev build",
-	Version = "v1.0.7"
+	Version = "v1.0.8"
 }
 
 for i, v in pairs(game:GetService("Players"):GetChildren()) do
@@ -502,7 +502,7 @@ AddCommand("desync",function(Time)
 	end
 end)
 
-AddCommand("sync2",function(Time)
+AddCommand("resync",function(Time)
 	for _, Target in pairs(GetPlayer(args[2])) do
 		local Objects = Target.Character:GetDescendants()
 		for I = 1, #Objects do
@@ -577,6 +577,9 @@ AddCommand("lowhold",function()
 	for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
 		if string.find(string.lower(v.Name), 'boomb') then
 			v.Grip = CFrame.new(-0.0109999999, 0.633000016, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+			v.Parent = game.Players.LocalPlayer.Backpack
+            v.Parent = game.Players.LocalPlayer.Character
+			v.Handle.Massless = true
 
 		end
 
@@ -591,9 +594,31 @@ AddCommand("backpack",function()
 			v.GripPos = Vector3.new(-1.434, -0.997, 2.115)
 			v.GripRight = Vector3.new(-0.672917, -0.733913, -0.0924888)
 			v.GripUp = Vector3.new(-0.736945, 0.67595, -0.00199985)
+			v.Parent = game.Players.LocalPlayer.Backpack
+            v.Parent = game.Players.LocalPlayer.Character
+			v.Handle.Massless = true
 		end
 
 	end
+end)
+local desyncing = false
+AddCommand("loopdesync",function()
+	desyncing = true
+	while desyncing == true do
+		wait(1)
+		for _, Target in pairs(GetPlayer(args[2])) do
+			local Objects = Target.Character:GetDescendants()
+			for I = 1, #Objects do
+				local Object = Objects[I]
+				if game.IsA(Object, 'Sound') then
+					Object.TimePosition = Object.TimePosition + math.random()
+				end
+			end
+		end
+	end
+end)
+AddCommand("undesync",function()
+desyncing = false
 end)
 local enabled = false
 AddCommand("chatspy",function()
